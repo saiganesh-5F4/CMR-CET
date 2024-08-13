@@ -1,0 +1,69 @@
+#include <LiquidCrystal.h>
+LiquidCrystal lcd(2, 3, 4, 5, 6, 7);
+
+#include <Servo.h>
+Servo servo;
+
+#define buzzer 13
+#define coin 9
+#define led A1
+#define relay A0
+int i;
+
+void setup() {
+  servo.attach(8);
+  servo.write(90);
+  pinMode(buzzer, OUTPUT);
+  pinMode(coin, INPUT);
+  pinMode(led, OUTPUT);
+  pinMode(relay, OUTPUT);
+  digitalWrite(buzzer, LOW);
+  digitalWrite(led, LOW);
+  digitalWrite(relay, HIGH);
+  lcd.begin(16, 2);
+  lcd.setCursor(0, 0);
+  lcd.print("HI! HELLO");
+  lcd.setCursor(0, 1);
+  lcd.print("WEL COME TO");
+  delay(4000);
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("POCKET POWER");
+  lcd.setCursor(0, 1);
+  lcd.print("STATION");
+  delay(2000);
+  lcd.clear();
+}
+void loop() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("INSERT COIN     ");
+  lcd.setCursor(0, 1);
+  lcd.print("                ");
+  while (digitalRead(coin) == LOW)
+    ;
+  for (i = 60; i >= 1; i--) {
+    servo.write(0);
+    digitalWrite(relay, LOW);
+    digitalWrite(led, HIGH);
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("CHARGING...     ");
+    lcd.setCursor(0, 1);
+    lcd.print("TIME: ");
+    lcd.print(i);
+    delay(1000);
+  }
+  digitalWrite(relay, HIGH);
+  digitalWrite(led, LOW);
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("CHARGING     ");
+  lcd.setCursor(0, 1);
+  lcd.print("COMPLETE       ");
+  digitalWrite(buzzer, HIGH);
+  delay(2000);
+  digitalWrite(buzzer, LOW);
+  servo.write(90);
+  delay(100);
+}
