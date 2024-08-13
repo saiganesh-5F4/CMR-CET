@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg{
+            background-color: #d6d6d6;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 300px;
+            margin-top: 200px;
+        }
+        .bg:hover{
+         background-color: rgb(0, 238, 255);
+        }
+        .bg:active{
+          background-color: rgb(255, 153, 0);
+        }
+        .btn:hover{
+         background-color: rgb(0, 255, 34);
+        }
+        .btn:active{
+          background-color: rgb(255, 0, 21);
+        }
+        .btn{
+            color: rgb(0, 0, 0);
+            border-radius: 15px;
+            height: 30px;
+            width: 100px;
+            border:none
+          
+        }
+        
+    </style>
+</head>
+<body><center>
+    <div class="bg">
+        <form action="success.html" method="post">
+        
+            <h1 style="color: rgb(4, 0, 255);">Registeration</h1>
+            <hr >
+            <label for="text">Name:<span style="color: red;">*</span></label>
+            <input style="border-radius: 20px ; border: none;" type="text" placeholder="Enter Name" required><br></br>
+            <label for="text">SurName:</label>
+            <input type="text" style="border-radius: 20px; border: none;" placeholder="Enter Name" required><br></br>
+            <label for="email">Email:<span style="color: red;">*</span></label>
+            <input type="email" style="border-radius: 20px; border: none;" placeholder="Enter Mail" required><br></br>
+            <label for="number">Phone:<span style="color: red;">*</span></label>
+            <input type="number" style="border-radius: 20px; border: none;" placeholder="Enter Mail" required><br></br>
+            <lable for="password">Password:<span style="color: red;">*</span></lable>
+            <input style="border-radius: 20px; border: none;" type="password" placeholder="Password" required><br></br>
+           Gender:<select style="width: 200px; border-radius: 20px; border: none;" ><option></option><option>Male</option><option>Female</option><option>Others</option></select><br></br>
+           <button class="btn">Submit</button>
+            
+
+
+        </center>
+    </form>
+    </div>
+</body>
+</html>
